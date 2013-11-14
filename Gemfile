@@ -13,6 +13,7 @@ gem 'turbolinks'
 gem 'slim'
 gem 'pry'
 gem 'rails_12factor', group: :production
+gem 'unicorn'
 
 group :doc do
   gem 'sdoc', require: false
