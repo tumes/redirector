@@ -3,6 +3,7 @@ development:
   encoding: unicode
   database: redirector_development
   pool: 5
+  host: localhost
   password:
 
 test:
@@ -10,4 +11,5 @@ test:
   encoding: unicode
   database: redirector_test
   pool: 5
+  host: localhost
   password:
