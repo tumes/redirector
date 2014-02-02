@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :redirect do
-    url "MyString"
-    short_url "MyString"
+    url "http://www.example.com"
   end
 end
