@@ -8,6 +8,8 @@ Redirector::Application.routes.draw do
 
   resources :redirects, only: [:create, :show]
 
+  resources :shortened_urls, only: [:show], path: 'r'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
