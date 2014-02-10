@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140202042251) do
+ActiveRecord::Schema.define(version: 20140210232448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "redirects", force: true do |t|
     t.string   "url"
-    t.string   "short_url"
+    t.string   "url_token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
