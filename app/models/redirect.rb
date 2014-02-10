@@ -5,6 +5,10 @@ class Redirect < ActiveRecord::Base
 
   before_create :assign_short_url
 
+  def self.find_by_short_url(short_url)
+    self.where(short_url: short_url).last || NullRedirect.new
+  end
+
   private
 
   def assign_short_url
