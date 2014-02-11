@@ -1,1 +1,3 @@
-p Your url is: #{@redirect.url_token}
+p
+  | Your url is: 
+  = link_to shortened_url(id: @redirect.url_token), shortened_url(id: @redirect.url_token)

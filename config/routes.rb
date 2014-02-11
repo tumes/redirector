@@ -7,5 +7,5 @@ Redirector::Application.routes.draw do
 
   resources :redirects, only: [:create, :show]
 
-  resources :shortened_urls, only: [:show], path: 'r'
+  resources :shortened_urls, only: [:show], path: 'r', as: 'shortened'
 end

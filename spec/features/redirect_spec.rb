@@ -4,12 +4,13 @@ describe 'creating a redirect' do
 
   context 'when the url has not been created' do
 
-    it 'allows the user to create a new redirect' do
+    it 'allows the user to submit a redirect' do
       visit root_path
       fill_in "Url", with: 'http://www.example.com'
       click_button "Shorten"
 
-      expect(page).to have_content "Your url is:"
+      new_redirect = Redirect.where(url: 'http://www.example.com').last
+      expect(page).to have_content "Your url is: #{shortened_url(id: new_redirect.url_token)}"
     end
 
     it 'creates a new redirect' do
@@ -23,12 +24,12 @@ describe 'creating a redirect' do
   context 'when the url has been created' do
     let!(:redirect) { FactoryGirl.create(:redirect, url: "http://www.example.com") }
 
-    it 'allows the user to create a new redirect' do
+    it 'allows the user to submit a redirect' do
       visit root_path
       fill_in "Url", with: 'http://www.example.com'
       click_button "Shorten"
 
-      expect(page).to have_content "Your url is:"
+      expect(page).to have_content "Your url is: #{shortened_url(id: redirect.url_token)}"
       expect(current_path).to eq(redirect_path(redirect))
     end
 
