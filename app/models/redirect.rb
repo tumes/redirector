@@ -12,6 +12,10 @@ class Redirect < ActiveRecord::Base
     self.where(url_token: url_token).last || NullRedirect.new
   end
 
+  def url_with_protocol
+    url.match(/\Ahttps?:\/\//) ? url : "http://#{url}"
+  end
+
   private
 
   def assign_url_token

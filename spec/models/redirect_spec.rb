@@ -59,4 +59,26 @@ describe Redirect do
 
   end
 
+  describe '#url_with_protocol' do
+
+    context 'when the url is stored with a protocol' do
+      let!(:redirect) { FactoryGirl.create(:redirect, url: 'http://example.com') }
+
+      it 'returns the url as stored' do
+        expect(redirect.url_with_protocol).to eq('http://example.com')
+      end
+
+    end
+
+    context 'when the url is not stored with a protocol' do
+      let!(:redirect) { FactoryGirl.create(:redirect, url: 'example.com') }
+
+      it 'returns the url with a protocol' do
+        expect(redirect.url_with_protocol).to eq('http://example.com')
+      end
+
+    end
+
+  end
+
 end

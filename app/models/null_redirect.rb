@@ -1,6 +1,6 @@
 class NullRedirect
 
-  def url
+  def url_with_protocol
     '/'
   end
 
